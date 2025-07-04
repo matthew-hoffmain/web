@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import NavBar from "./components/NavBar/NavBar.js";
 import Container from "@mui/material/Container";
-import ChatBox from "./components/ChatBox/ChatBox";
-import NewVisitorModal from "./components/NewVisitorModal/NewVisitorModal";
-import ContentBox from "./components/ContentBox/ContentBox";
+import {Route, Routes} from "react-router";
+import Homepage from "./components/Pages/Homepage/Homepage";
+import AboutMe from "./components/Pages/AboutMe/AboutMe";
+import Box from "@mui/material/Box";
 
 function App() {
       const [message, setMessage] = useState('');
@@ -16,18 +17,13 @@ function App() {
       }, []);
 
       return (
-        <div className="App">
-            <NewVisitorModal/>
+        <Box className="App" sx={{bgcolor:'green', width:'100%', height:'100%'}}>
             <NavBar/>
-            <Container
-                maxWidth="lg"
-                component="main"
-                sx={{ display: 'flex', flexDirection: 'column', my: 4, gap: 4 }}
-            >
-                <ContentBox sx={{border: 1,padding: "1rem", borderRadius: 1}} text={'Matt'}/>
-                <ChatBox/>
-            </Container>
-        </div>
+            <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/about_me" element={<AboutMe />} />
+            </Routes>
+        </Box>
       );
     }
 

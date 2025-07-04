@@ -19,8 +19,11 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import {Drawer} from "@mui/material";
+import {Link} from "react-router";
 
-const pages = ['About Me'];
+const pages = [
+    ['About Me', 'about_me']
+];
 const settings = ['Account', 'Logout'];
 
 function NavBar(props) {
@@ -51,34 +54,9 @@ function NavBar(props) {
 
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
+            hi
         </Box>
     );
-    // end drawer
 
     return (
         <AppBar position="static" sx={{bgcolor:'black'}} >
@@ -97,88 +75,94 @@ function NavBar(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography
-                        variant="h4"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        HOFFMAIN
-                    </Typography>
+                    <Link to={"/"} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Typography
+                            variant="h4"
+                            noWrap
+                            component="a"
+                            sx={{
+                                mr: 2,
+                                display: { xs: 'none', md: 'flex' },
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            HOFFMAIN
+                        </Typography>
+                    </Link>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h4"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        HOFFMAIN
-                    </Typography>
+
+                    {/*<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>*/}
+                    {/*    <IconButton*/}
+                    {/*        size="large"*/}
+                    {/*        aria-label="account of current user"*/}
+                    {/*        aria-controls="menu-appbar"*/}
+                    {/*        aria-haspopup="true"*/}
+                    {/*        onClick={handleOpenNavMenu}*/}
+                    {/*        color="inherit"*/}
+                    {/*    >*/}
+                    {/*        <MenuIcon />*/}
+                    {/*    </IconButton>*/}
+                    {/*    <Menu*/}
+                    {/*        id="menu-appbar"*/}
+                    {/*        anchorEl={anchorElNav}*/}
+                    {/*        anchorOrigin={{*/}
+                    {/*            vertical: 'bottom',*/}
+                    {/*            horizontal: 'left',*/}
+                    {/*        }}*/}
+                    {/*        keepMounted*/}
+                    {/*        transformOrigin={{*/}
+                    {/*            vertical: 'top',*/}
+                    {/*            horizontal: 'left',*/}
+                    {/*        }}*/}
+                    {/*        open={Boolean(anchorElNav)}*/}
+                    {/*        onClose={handleCloseNavMenu}*/}
+                    {/*        sx={{ display: { xs: 'block', md: 'none' } }}*/}
+                    {/*    >*/}
+                    {/*        {pages.map((page) => (*/}
+                    {/*            <MenuItem key={page} onClick={handleCloseNavMenu}>*/}
+                    {/*                <Typography sx={{ textAlign: 'center' }}>{page}</Typography>*/}
+                    {/*            </MenuItem>*/}
+                    {/*        ))}*/}
+                    {/*    </Menu>*/}
+                    {/*</Box>*/}
+                    {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
+                    {/*<Typography*/}
+                    {/*    variant="h4"*/}
+                    {/*    noWrap*/}
+                    {/*    component="a"*/}
+                    {/*    href="#app-bar-with-responsive-menu"*/}
+                    {/*    sx={{*/}
+                    {/*        mr: 2,*/}
+                    {/*        display: { xs: 'flex', md: 'none' },*/}
+                    {/*        flexGrow: 1,*/}
+                    {/*        fontFamily: 'monospace',*/}
+                    {/*        fontWeight: 700,*/}
+                    {/*        letterSpacing: '.3rem',*/}
+                    {/*        color: 'inherit',*/}
+                    {/*        textDecoration: 'none',*/}
+                    {/*    }}*/}
+                    {/*>*/}
+                    {/*    HOFFMAIN*/}
+                    {/*</Typography>*/}
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
+                            <Link to={page[1]} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Button
+                                    key={page[0]}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >
+                                    {page[0]}
+                                </Button>
+                            </Link>
                         ))}
                     </Box>
+
                     {/*<Box sx={{ flexGrow: 0 }}>*/}
                     {/*    <Tooltip title="Open settings">*/}
                     {/*        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>*/}

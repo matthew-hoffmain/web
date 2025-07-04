@@ -51,7 +51,7 @@ export default function ChatBox() {
     }, []);
 
     return (
-        <Paper elevation={4} component="section" sx={{ p: 2, bgcolor: '#333333', borderRadius:"1rem"}}>
+        <Paper elevation={24} component="section" sx={{ p: 2, bgcolor: '#333333', borderRadius:"1rem", position:'fixed', bottom:50, right:50, height:.5, width:.5}}>
 
             <StyledBadge
                 overlap="circular"
