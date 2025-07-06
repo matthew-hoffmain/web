@@ -3,14 +3,16 @@ import NavBar from "./components/NavBar/NavBar.js";
 import Box from "@mui/material/Box";
 import {Route, Routes} from "react-router";
 import Homepage from "./components/Pages/Homepage/Homepage";
-import AboutMe from "./components/Pages/AboutMe/AboutMe";
+import Timeline from "./components/Pages/Timeline/Timeline";
 import Showdown from "./components/Pages/Showdown/Showdown";
-import Typography from "@mui/material/Typography";
+import FAQ from "./components/Pages/FAQ/FAQ";
 import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
-import ChatIcon from '@mui/icons-material/Chat';
 import ChatBox from "./components/ChatBox/ChatBox";
+import AudioBox from "./components/AudioBox/AudioBox";
+import AssistantIcon from '@mui/icons-material/Assistant';
 import Badge from '@mui/material/Badge';
+import Cyforge from "./components/Pages/Cyforge/Cyforge";
+
 
 function App() {
 
@@ -31,8 +33,10 @@ function App() {
               <NavBar/>
               <Routes>
                   <Route path="/" element={<Homepage/>}/>
-                  <Route path="/about_me" element={<AboutMe topRef={topRef}/>}/>
+                  <Route path="/timeline" element={<Timeline topRef={topRef}/>}/>
+                  <Route path="/cyforge" element={<Cyforge/>}/>
                   <Route path="/showdown" element={<Showdown/>}/>
+                  <Route path="/faq" element={<FAQ/>}/>
               </Routes>
 
               {showVirgilBox && (
@@ -66,9 +70,10 @@ function App() {
                              vertical: 'top',
                              horizontal: 'left',
                          }}>
-                      <ChatIcon sx={{ transform: 'scaleX(-1)' }}/>
+                      <AssistantIcon sx={{ transform: 'scaleX(-1)' }}/>
                   </Badge>
               </Button>
+              <AudioBox/>
           </Box>
       );
 }

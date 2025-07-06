@@ -17,12 +17,12 @@ export default function Homepage() {
             <Container
                 maxWidth="lg"
                 component="main"
-                sx={{ display: 'flex', flexDirection: 'column', my: 4, gap: 4 , bgcolor:'white'}}
+                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
             >
                 <Container
                     maxWidth="md"
                     component="main"
-                    sx={{ display: 'flex', flexDirection: 'column', my: 4, gap: 4 , bgcolor:'white'}}
+                    sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:''}}
                 >
                     <Typography
                         align="justify"

@@ -19,17 +19,42 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import BackpackIcon from '@mui/icons-material/Backpack';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { grey, red, blue, green, purple } from '@mui/material/colors';
+import PianoIcon from '@mui/icons-material/Piano';
+import BalanceIcon from '@mui/icons-material/Balance';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import {blue, green, red} from '@mui/material/colors';
 import {Chip} from "@mui/material";
 import Stack from "@mui/material/Stack";
+import BiotechIcon from '@mui/icons-material/Biotech';
+import FunctionsIcon from '@mui/icons-material/Functions';
+import EnergySavingsLeafIcon from '@mui/icons-material/EnergySavingsLeaf';
+import StorageIcon from '@mui/icons-material/Storage';
 import ReactMarkdown from "react-markdown";
-import Button from "@mui/material/Button";
+import DataObjectIcon from '@mui/icons-material/DataObject';
+import ScienceIcon from '@mui/icons-material/Science';
+import ComputerIcon from '@mui/icons-material/Computer';
+import MemoryIcon from '@mui/icons-material/Memory';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+
+import AssistantIcon from '@mui/icons-material/Assistant';
 import Box from "@mui/material/Box";
-import {ArrowDownward} from "@mui/icons-material";
 
 
 const icons = {
+    assistant: <AssistantIcon/>,
+    flow: <AccountTreeIcon/>,
+    memory: <MemoryIcon/>,
+    computer: <ComputerIcon />,
+    science: <ScienceIcon />,
+    dataObject: <DataObjectIcon />,
+    storage: <StorageIcon />,
+    discrete: <FunctionsIcon />,
+    biotech: <BiotechIcon />,
+    greenEnergy: <EnergySavingsLeafIcon />,
+    electric: <ElectricBoltIcon />,
+    balance: <BalanceIcon />,
+    piano: <PianoIcon />,
     repair: <HomeRepairServiceIcon />,
     backpack: <BackpackIcon />,
     work: <WorkIcon />,
@@ -61,15 +86,15 @@ const timelineTheme = createTheme({
     },
     palette: {
         professional: {
-            main: blue[400],
+            main: blue[600],
             contrastText: "#fff",
         },
         academic: {
-            main: red[400],
+            main: red[600],
             contrastText: "#fff",
         },
         personal: {
-            main: green[400],
+            main: green[600],
             contrastText: "#fff",
         },
     }
@@ -134,16 +159,6 @@ export default function MyTimeline(props) {
                     onClick={() => setSortAsc(!sortAsc)}
                 />
             </Stack>
-
-            {
-                hasScrollbar ?
-                    <Chip
-                        label={'GO TO BOTTOM'}
-                        onClick={() => bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-                        }/>
-                    :
-                    null
-            }
             <Timeline
                 ref={timelineRef}
                 sx={{

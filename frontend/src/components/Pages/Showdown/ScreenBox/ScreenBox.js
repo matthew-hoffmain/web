@@ -43,11 +43,10 @@ export default function ScreenBox(props) {
                 />
 
 
-                {/* Top-right image (doubled size) */}
                 <img
                     ref={topRightRef}
                     onLoad={handleTopRightLoad}
-                    src="https://play.pokemonshowdown.com/sprites/gen5ani/gengar.gif" // replace with real image
+                    src="https://play.pokemonshowdown.com/sprites/gen5ani/gengar.gif"
                     style={{
                         position: 'absolute',
                         top: 160,
@@ -57,11 +56,10 @@ export default function ScreenBox(props) {
                     }}
                 />
 
-                {/* Bottom-left image (doubled size) */}
                 <img
                     ref={bottomLeftRef}
                     onLoad={handleBottomLeftLoad}
-                    src="https://play.pokemonshowdown.com/sprites/gen5ani-back/nidorino.gif" // replace with real image
+                    src="https://play.pokemonshowdown.com/sprites/gen5ani-back/nidorino.gif"
                     style={{
                         position: 'absolute',
                         bottom: 100,

@@ -5,10 +5,11 @@ import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
 import SuggestedResponses from "./SuggestedResponses/SuggestedResponses";
 import PortraitIcon from '@mui/icons-material/Portrait';
-import {Avatar} from "@mui/material";
+import {Avatar, CircularProgress} from "@mui/material";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
+import Box from "@mui/material/Box";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -42,6 +43,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function ChatBox() {
     const [messages, setMessages] = useState([]);
+    const [input, setInput] = useState('');
+    const [waiting, setWaiting] = useState(false);
 
     useEffect(() => {
         fetch('/chat/init')
@@ -50,15 +53,43 @@ export default function ChatBox() {
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
+    const handleInputChange = (e) => setInput(e.target.value);
+
+    const handleInputKeyDown = async (e) => {
+        if (e.key === 'Enter' && input.trim()) {
+            const newMessages = [...messages, { role: 'user', content: input }];
+            setMessages(newMessages);
+            setInput('');
+            setWaiting(true);
+            const res = await fetch('/chat/prompt', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: newMessages }),
+            });
+            const data = await res.json();
+            setWaiting(false);
+            setMessages(prev => [...prev, ...data.content]);
+        }
+    };
+
     return (
-        <Paper elevation={24} component="section" sx={{ p: 2, bgcolor: '#333333', borderRadius:"1rem", position:'fixed', bottom:50, right:50, height:.5, width:.5}}>
+        <Paper elevation={24} component="section" sx={{
+            p: 2,
+            bgcolor: '#333333',
+            borderRadius: "1rem",
+            position: 'fixed',
+            bottom: 50,
+            right: 50,
+            height: .5,
+            width: .5
+        }}>
 
             <StyledBadge
                 overlap="circular"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
                 variant="dot"
             >
-            <   Avatar sx={{}}>VX</Avatar>
+                <   Avatar sx={{}}>VX</Avatar>
             </StyledBadge>
             <Typography
                 variant="h5"
@@ -72,15 +103,39 @@ export default function ChatBox() {
                 }}>
                 Virgil
             </Typography>
-            {messages.map((message) => (
-                <Message
-                    key={message.id}
-                    sender={message.sender}
-                    content={message.content}
-                >
-                </Message>
-            ))}
-            <Input></Input>
+            <Box
+                bgcolor="black"
+                style={{
+                    height: '500px',
+                    overflowY: 'auto',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    borderRadius: '1rem',
+                    padding: '.5rem',
+                }}
+            >
+                {messages.map((message) => (
+                    <Message
+                        key={message.id}
+                        role={message.role}
+                        content={message.content}
+                    />
+                ))}
+                {waiting ? <CircularProgress /> : null}
+            </Box>
+            <Input
+                value={input}
+                onChange={handleInputChange}
+                onKeyDown={handleInputKeyDown}
+                placeholder="Type your message..."
+                fullWidth
+                sx={{
+                    color: 'white',
+                    mt: 2,
+                    fontFamily: 'monospace',
+                    width: '100%'
+                }}
+            />
         </Paper>
     );
 }
