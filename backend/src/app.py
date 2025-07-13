@@ -11,3 +11,6 @@ app.register_blueprint(index_blueprint)
 
 from backend.src.endpoints.chat import chat_blueprint
 app.register_blueprint(chat_blueprint)
+
+from backend.src.endpoints.content import content_blueprint
+app.register_blueprint(content_blueprint)

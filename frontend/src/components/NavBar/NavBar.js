@@ -22,7 +22,8 @@ import {Drawer} from "@mui/material";
 import {Link} from "react-router";
 
 const pages = [
-    ['About Me', 'about_me']
+    ['About Me', 'about_me'],
+    ['Showdown', 'showdown'],
 ];
 const settings = ['Account', 'Logout'];
 
@@ -155,9 +156,20 @@ function NavBar(props) {
                                 <Button
                                     key={page[0]}
                                     onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                    sx={{ my: 1,
+                                        mx: 1,
+                                        borderRadius: 4,
+                                        display: 'block',
+                                        backgroundColor: '#222',
+                                        color: '#ffffff',
+                                        '&:hover': {
+                                            backgroundColor: '#444',
+                                        },
+                                }}
                                 >
-                                    {page[0]}
+                                    <Typography fontFamily={'monospace'} fontWeight={'bold'}>
+                                        {page[0]}
+                                    </Typography>
                                 </Button>
                             </Link>
                         ))}

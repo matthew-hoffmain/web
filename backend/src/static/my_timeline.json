@@ -1,0 +1,104 @@
+[{
+   "date": "Present Day",
+   "event": "Applying to Law Schools",
+   "category": "academic",
+   "icon": "gavel",
+   "description": "I am currently applying to law schools, with a focus on intellectual property and technology law."
+  },
+  {
+   "date": "January 2025",
+   "event": "Joined Digital Science as a Software Engineer",
+   "category": "professional",
+   "description": "Published a Python package, available on Py"
+  },
+  {
+   "date": "July 2024",
+   "event": "Developed Cyforge",
+   "category": "personal",
+   "icon": "terminal",
+   "description": "Published a Python package, available on Py"
+  },
+  {
+   "date": "April 2023",
+   "event": "Completed Boston University Paralegal Studies Certification",
+   "category": "academic",
+   "description": "As part of my continued education (prior to law school)."
+  },
+  {
+   "date": "May 2022",
+   "event": "Graduated from Northeastern University Honors College of Engineering BS/MS Program",
+   "category": "academic",
+   "description": "Left with a combined Bachelor's in Computer Engineering and Computer Science, and a Master's in Electrical and Computer Engineering with a concentration in Computer Systems"
+  },
+  {
+   "date": "June 2021",
+   "event": "Started at Dell Technologies as a Software Engineer II",
+   "category": "professional",
+   "description": ""
+  },
+    {
+   "date": "April 2021",
+   "event": "Completed capstone project for Northeastern University",
+   "category": "academic",
+   "icon": "repair",
+   "description": ""
+  },
+  {
+   "date": "June 2020",
+   "event": "Started at Dell Technologies as a Storage Graduate Intern",
+   "category": "professional",
+   "description": ""
+  },
+
+  {
+   "date": "January 2020",
+   "event": "Joined Draper Laboratory as a Machine Intelligence Co-op",
+   "category": "professional",
+   "description": ""
+  },
+    {
+   "date": "January 2019",
+   "event": "Became a Teaching Assistant for Accelerated Fundamentals of Computer Science II at Northeastern University",
+   "category": "professional",
+   "description": ""
+  },
+  {
+   "date": "September 2018",
+   "event": "Started at Waters Corporation as a Software Engineering Co-op",
+   "category": "professional",
+   "description": "Took a co-op position at Waters Corporation, where I developed tests for High Performance Liquid Chromatography (HPLC) systems' software."
+  },
+  {
+   "date": "September 2017",
+   "event": "Became a Teaching Assistant for Discrete Structures at Northeastern University",
+   "category": "professional",
+   "description": "Following taking the class, I took the opportunity to lead weekly recitations (small, focused lectures) in addition to grading and tutoring."
+  },
+  {
+   "date": "September 2016",
+   "event": "Entered at Northeastern University as an Undeclared Engineering Honors Student",
+   "category": "academic",
+    "icon": "backpack",
+   "description": "I went into undergraduate with the intent of pursuing a career in patent law, by first developing a background in engineering. I quickly decided to study Computer Engineering and Computer Science."
+  },
+  {
+   "date": "May 2016",
+   "event": "Graduated from Milford High School",
+   "category": "academic",
+   "description": "Ranked 5th / approx. 300, as an AP Scholar with Distinction, with an unweighted GPA of 3.92. I was also president of the National Honors Society, captain of the MBA Mock Trial Team, president of the Junior State of America chapter, member of the Tri-M Music Honors Society, member of the Central District MMEA choir (baritone), varsity tennis player, theater member, and pinchaser."
+  },
+  {
+   "date": "January 2016",
+   "event": "Started at PINZ Entertainment as a \"Pinchaser\" (Bowling Mechanic)",
+   "category": "professional",
+   "icon": "handyman",
+   "description": "I joined the gaming staff at my local bowling alley, and became an experienced bowling mechanic over college summers, fixing the pinspotters, laser tag systems, and arcade machines. I bowled a 216 once and retired."
+  },
+  {
+   "date": "May 2015",
+   "event": "Started at Five Guys Burgers and Fries as a Crew Member",
+   "category": "professional",
+   "icon": "fastfood",
+   "description": "Got my first job as a cashier and line cook, learning how to grill the meanest burger west of I-495."
+  }
+]
