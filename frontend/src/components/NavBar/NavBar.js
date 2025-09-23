@@ -14,10 +14,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import MemoryIcon from '@mui/icons-material/Memory';
 import ForumIcon from '@mui/icons-material/Forum';
+import RadioIcon from '@mui/icons-material/Radio';
 
 const pages = [
     ['Timeline', 'timeline', <PersonIcon/>],
     ['Cyforge', 'cyforge', <MemoryIcon/>],
+    ['Radio', 'radio', <RadioIcon/>],
     ['Showdown', 'showdown', <CatchingPokemonIcon/>],
     ['FAQ', 'faq', <ForumIcon/>],
 ];

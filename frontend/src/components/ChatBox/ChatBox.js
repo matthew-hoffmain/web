@@ -3,8 +3,9 @@ import Paper from '@mui/material/Paper';
 import Message from './Message/Message';
 import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
-import SuggestedResponses from "./SuggestedResponses/SuggestedResponses";
-import PortraitIcon from '@mui/icons-material/Portrait';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import IconButton from '@mui/material/IconButton';
 import {Avatar, CircularProgress} from "@mui/material";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -45,11 +46,18 @@ export default function ChatBox() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [waiting, setWaiting] = useState(false);
+    const [idCounter, setIdCounter] = useState(0);
+    const [muted, setMuted] = useState(true);
 
     useEffect(() => {
         fetch('/chat/init')
             .then(response => response.json())
-            .then(data => setMessages(data.content))
+            .then(data => {
+                setMessages(data.content);
+                // Find the max id in the loaded messages
+                const maxId = data.content.reduce((max, msg) => msg.id > max ? msg.id : max, -1);
+                setIdCounter(maxId + 1);
+            })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
 
@@ -57,18 +65,27 @@ export default function ChatBox() {
 
     const handleInputKeyDown = async (e) => {
         if (e.key === 'Enter' && input.trim()) {
-            const newMessages = [...messages, { role: 'user', content: input }];
-            setMessages(newMessages);
+            const newMessage = { id: idCounter, role: 'user', content: input, visible: true };
+            setMessages([...messages, newMessage]);
+            setIdCounter(idCounter + 1);
             setInput('');
             setWaiting(true);
             const res = await fetch('/chat/prompt', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ messages: newMessages }),
+                body: JSON.stringify(
+                    { messages: [...messages, newMessage],
+                            idCounter: idCounter},),
             });
             const data = await res.json();
+            // Assign ids to new assistant messages
+            const newAssistantMessages = data.content.map(msg => ({
+                ...msg,
+                id: msg.id !== undefined ? msg.id : idCounter + 1 // fallback if backend doesn't provide id
+            }));
+            setIdCounter(idCounter + newAssistantMessages.length + 1);
             setWaiting(false);
-            setMessages(prev => [...prev, ...data.content]);
+            setMessages(prev => [...prev, ...newAssistantMessages]);
         }
     };
 
@@ -103,6 +120,13 @@ export default function ChatBox() {
                 }}>
                 Virgil
             </Typography>
+            <IconButton
+                onClick={() => setMuted(m => !m)}
+                sx={{ color: 'white', position: 'absolute', top: 16, right: 16 }}
+                aria-label={muted ? "Unmute" : "Mute"}
+            >
+                {muted ? <VolumeOffIcon /> : <VolumeUpIcon />}
+            </IconButton>
             <Box
                 bgcolor="black"
                 style={{
@@ -115,11 +139,16 @@ export default function ChatBox() {
                 }}
             >
                 {messages.map((message) => (
-                    <Message
-                        key={message.id}
-                        role={message.role}
-                        content={message.content}
-                    />
+                    message.visible ?
+                        <Message
+                            key={message.id}
+                            id={message.id}
+                            role={message.role}
+                            content={message.content}
+                            latestId={messages[messages.length - 1]?.id}
+                            muted={muted}
+                        /> :
+                        null
                 ))}
                 {waiting ? <CircularProgress /> : null}
             </Box>

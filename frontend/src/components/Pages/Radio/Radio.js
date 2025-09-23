@@ -2,14 +2,12 @@ import Container from "@mui/material/Container";
 import ReactMarkdown from 'react-markdown';
 import {useEffect, useState} from "react";
 import Typography from "@mui/material/Typography";
-import MyTimeline from "./MyTimeline/MyTimeline";
 
-
-export default function Timeline(props) {
+export default function Radio() {
     const [message, setMessage] = useState('');
 
     useEffect(() => {
-        fetch('/static/pages/about_me.md')
+        fetch('/static/pages/radio.md')
             .then(response => response.text())
             .then(data => setMessage(data))
             .catch(error => console.error('Error fetching data:', error));
@@ -19,12 +17,12 @@ export default function Timeline(props) {
         <Container
             maxWidth="lg"
             component="main"
-            sx={{ display: 'flex', flexDirection: 'column', bgcolor:'white'}}
+            sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
         >
             <Container
-                maxWidth="xl"
+                maxWidth="lg"
                 component="main"
-                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
+                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:''}}
             >
                 <Typography
                     align="justify"
@@ -37,10 +35,8 @@ export default function Timeline(props) {
                         {message}
                     </ReactMarkdown>
                 </Typography>
-
-                <MyTimeline topRef={props.topRef}/>
-                <div/>
             </Container>
+
         </Container>
     );
 }

@@ -1,11 +1,10 @@
-# TODO: replace this module with cyforge implementation
 from openai import OpenAI
 from cyforge.blocks.schema import Schema
 
 
-KEY = "get your own key from https://platform.openai.com/account/api-keys"
+KEY = "temp please get your own"
 
-def get_response(messages) -> str:
+def get_response(messages, message_id) -> str:
     """
     Get a response from the OpenAI API.
     :param prompt: The prompt to send to the OpenAI API.
@@ -16,4 +15,14 @@ def get_response(messages) -> str:
         model="gpt-4.1",
         messages=messages
     )
-    return response.choices[0].message.content
+
+    response_content = response.choices[0].message.content
+    response_audio = client.audio.speech.create(
+        model="tts-1-hd",
+        voice="echo",
+        input=response_content[:4095],
+        response_format='mp3',
+        speed=1
+    )
+    response_audio.stream_to_file(f'static/audio/virgil/test{message_id}.mp3')
+    return response_content

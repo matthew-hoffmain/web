@@ -12,6 +12,8 @@ import AudioBox from "./components/AudioBox/AudioBox";
 import AssistantIcon from '@mui/icons-material/Assistant';
 import Badge from '@mui/material/Badge';
 import Cyforge from "./components/Pages/Cyforge/Cyforge";
+import Radio from "./components/Pages/Radio/Radio.js";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp'; // Add this import
 
 
 function App() {
@@ -19,8 +21,10 @@ function App() {
     const topRef = useRef(null);
     const [message, setMessage] = useState('');
     const [showVirgilBox, setShowVirgilBox] = useState(false);
+    const [showAudioBox, setShowAudioBox] = useState(false); // New state
 
-      useEffect(() => {
+
+    useEffect(() => {
         fetch('/healthcheck')
           .then(response => response.json())
           .then(data => setMessage(data.message))
@@ -28,20 +32,26 @@ function App() {
       }, []);
 
       return (
-          <Box className="App" sx={{bgcolor: '#cccccc', width: '100%', minHeight: '100vh'}}>
+          <Box className="App"
+               sx={{
+               bgcolor: '#cccccc',
+               width: '100%',
+               height: '100%',
+               minWidth: '320px',
+               minHeight: '480px',
+          }}>
               <div ref={topRef}/>
               <NavBar/>
               <Routes>
                   <Route path="/" element={<Homepage/>}/>
                   <Route path="/timeline" element={<Timeline topRef={topRef}/>}/>
                   <Route path="/cyforge" element={<Cyforge/>}/>
+                  <Route path="/radio" element={<Radio/>}/>
                   <Route path="/showdown" element={<Showdown/>}/>
                   <Route path="/faq" element={<FAQ/>}/>
               </Routes>
 
-              {showVirgilBox && (
-                  <ChatBox/>
-              )}
+              {showVirgilBox && <ChatBox/>}
 
               <Button
                   sx={{
@@ -52,9 +62,7 @@ function App() {
                       display: 'block',
                       backgroundColor: '#222',
                       color: '#ffffff',
-                      '&:hover': {
-                          backgroundColor: '#444',
-                      },
+                      '&:hover': { backgroundColor: '#444' },
                       position: 'fixed',
                       bottom: 24,
                       right: 24,
@@ -66,14 +74,35 @@ function App() {
                   onClick={() => setShowVirgilBox(prev => !prev)}
               >
                   <Badge badgeContent={'1'} color="secondary"
-                         anchorOrigin={{
-                             vertical: 'top',
-                             horizontal: 'left',
-                         }}>
+                         anchorOrigin={{ vertical: 'top', horizontal: 'left' }}>
                       <AssistantIcon sx={{ transform: 'scaleX(-1)' }}/>
                   </Badge>
               </Button>
-              <AudioBox/>
+
+              <Button
+                  sx={{
+                      minWidth: 40,
+                      width: 40,
+                      height: 40,
+                      borderRadius: '50%',
+                      display: 'block',
+                      backgroundColor: '#222',
+                      color: '#ffffff',
+                      '&:hover': { backgroundColor: '#444' },
+                      position: 'fixed',
+                      bottom: 24,
+                      left: 24,
+                      zIndex: 1301,
+                      p: 0,
+                  }}
+                  variant="contained"
+                  color="primary"
+                  onClick={() => setShowAudioBox(prev => !prev)}
+              >
+                  <VolumeUpIcon />
+              </Button>
+
+              {showAudioBox && <AudioBox/>}
           </Box>
       );
 }

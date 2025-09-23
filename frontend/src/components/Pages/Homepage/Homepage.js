@@ -14,29 +14,29 @@ export default function Homepage() {
     }, []);
 
     return (
+        <Container
+            maxWidth="lg"
+            component="main"
+            sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
+        >
             <Container
                 maxWidth="lg"
                 component="main"
-                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
+                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:''}}
             >
-                <Container
-                    maxWidth="md"
-                    component="main"
-                    sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:''}}
-                >
-                    <Typography
-                        align="justify"
-                        variant="body1"
-                        href="/"
-                        sx={{
-                            fontFamily: 'monospace',
-                        }}>
-                        <ReactMarkdown>
-                            {message}
-                        </ReactMarkdown>
-                    </Typography>
-                </Container>
-
+                <Typography
+                    align="justify"
+                    variant="body1"
+                    href="/"
+                    sx={{
+                        fontFamily: 'monospace',
+                    }}>
+                    <ReactMarkdown>
+                        {message}
+                    </ReactMarkdown>
+                </Typography>
             </Container>
+
+        </Container>
     );
 }
