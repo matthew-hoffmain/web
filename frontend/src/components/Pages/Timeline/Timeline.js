@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import {useEffect, useState} from "react";
 import Typography from "@mui/material/Typography";
 import MyTimeline from "./MyTimeline/MyTimeline";
+import FooterBar from "../../FooterBar/FooterBar";
 
 
 export default function Timeline(props) {
@@ -35,7 +36,7 @@ export default function Timeline(props) {
                     variant="body1"
                     href="/"
                     sx={{
-                        fontFamily: 'monospace',
+                        fontFamily: 'domine',
                     }}>
                     <ReactMarkdown>
                         {message}
@@ -45,6 +46,7 @@ export default function Timeline(props) {
                 <MyTimeline topRef={props.topRef}/>
                 <div/>
             </Container>
+            <FooterBar/>
         </Container>
     );
 }

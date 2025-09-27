@@ -81,7 +81,7 @@ function NavBar(props) {
                                     textDecoration: 'none',
                                 }}
                             >
-                                HOFFMAIN
+                                HOFFMAIN<sup style={{ fontSize: '0.35em', verticalAlign: 'super', marginLeft: '0.1em' }}>&copy;</sup>
                             </Typography>
                         </Link>
                     </Box>
