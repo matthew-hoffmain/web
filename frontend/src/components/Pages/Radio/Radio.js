@@ -20,7 +20,7 @@ export default function Radio() {
             sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
         >
             <Container
-                maxWidth="lg"
+                maxWidth="md"
                 component="main"
                 sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:''}}
             >

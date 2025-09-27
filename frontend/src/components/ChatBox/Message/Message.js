@@ -17,10 +17,25 @@ export default function Message(props) {
             audioRef.current.play();
             setPlaying(true);
         }
+        // Pause audio if muted becomes true
+        if (props.muted && audioRef.current && playing) {
+            audioRef.current.pause();
+            setPlaying(false);
+        }
     }, [props.latestId, id, props.muted]);
 
     const handlePlayPause = () => {
-        if (props.muted) return;
+        if (props.muted) {
+            if (props.onUnmute) props.onUnmute();
+            // Wait for parent to unmute before playing
+            setTimeout(() => {
+                if (audioRef.current) {
+                    audioRef.current.play();
+                    setPlaying(true);
+                }
+            }, 0);
+            return;
+        }
         if (!playing) {
             audioRef.current.play();
         } else {

@@ -19,7 +19,7 @@ const songs = [
         label: "Nocturne Op. 55 No. 1",
         url: "https://www.classicals.de/s/Classicalsde-Chopin-Nocturne-in-F-minor-Op-55-No-1.mp3"
     },
-    {
+    { 
         label: "Moonlight Sonata",
         url: "https://www.classicals.de/s/Classicalsde-Beethoven-Moonlight-Sonata.mp3"
     },

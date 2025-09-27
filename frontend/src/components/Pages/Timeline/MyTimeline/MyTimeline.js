@@ -36,7 +36,7 @@ import ScienceIcon from '@mui/icons-material/Science';
 import ComputerIcon from '@mui/icons-material/Computer';
 import MemoryIcon from '@mui/icons-material/Memory';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
-
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import AssistantIcon from '@mui/icons-material/Assistant';
 import Box from "@mui/material/Box";
 
@@ -64,6 +64,7 @@ const icons = {
     handyman: <HandymanIcon />,
     terminal: <TerminalIcon />,
     gavel: <GavelIcon />,
+    running: <DirectionsRunIcon/>
 };
 
 const categoryIcons = {
@@ -86,15 +87,15 @@ const timelineTheme = createTheme({
     },
     palette: {
         professional: {
-            main: blue[600],
+            main: blue[400],
             contrastText: "#fff",
         },
         academic: {
-            main: red[600],
+            main: red[400],
             contrastText: "#fff",
         },
         personal: {
-            main: green[600],
+            main: green[400],
             contrastText: "#fff",
         },
     }

@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import {Avatar, CircularProgress} from "@mui/material";
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
 import Box from "@mui/material/Box";
 
 
@@ -97,43 +96,54 @@ export default function ChatBox() {
             position: 'fixed',
             bottom: 50,
             right: 50,
-            height: .5,
-            width: .5
+            height: '80vh', // Use a fixed or percentage height
+            width: '35vw',  // Adjust as needed
+            display: 'flex',
+            flexDirection: 'column',
         }}>
 
-            <StyledBadge
-                overlap="circular"
-                anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
-                variant="dot"
-            >
-                <   Avatar sx={{}}>VX</Avatar>
-            </StyledBadge>
-            <Typography
-                variant="h5"
-                href="/"
-                sx={{
-                    textAlign: 'center',
-                    fontFamily: 'monospace',
-                    fontWeight: 700,
-                    letterSpacing: '.3rem',
-                    color: 'white',
-                }}>
-                Virgil
-            </Typography>
-            <IconButton
-                onClick={() => setMuted(m => !m)}
-                sx={{ color: 'white', position: 'absolute', top: 16, right: 16 }}
-                aria-label={muted ? "Unmute" : "Mute"}
-            >
-                {muted ? <VolumeOffIcon /> : <VolumeUpIcon />}
-            </IconButton>
+            {/* Header */}
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, height: 48, flexShrink: 0 }}>
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+                    <StyledBadge
+                        overlap="circular"
+                        anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
+                        variant="dot"
+                    >
+                        <Avatar>VX</Avatar>
+                    </StyledBadge>
+                </Box>
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            textAlign: 'center',
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'white',
+                        }}>
+                        Virgil
+                    </Typography>
+                </Box>
+                <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+                    <IconButton
+                        onClick={() => setMuted(m => !m)}
+                        sx={{ color: 'white' }}
+                        aria-label={muted ? "Unmute" : "Mute"}
+                    >
+                        {muted ? <VolumeOffIcon /> : <VolumeUpIcon />}
+                    </IconButton>
+                </Box>
+            </Box>
+
+            {/* Middle (messages) area */}
             <Box
                 bgcolor="black"
-                style={{
-                    height: '500px',
+                sx={{
+                    flex: 1,
+                    minHeight: 0,
                     overflowY: 'auto',
-                    marginTop: '1rem',
-                    marginBottom: '1rem',
                     borderRadius: '1rem',
                     padding: '.5rem',
                 }}
@@ -152,19 +162,23 @@ export default function ChatBox() {
                 ))}
                 {waiting ? <CircularProgress /> : null}
             </Box>
-            <Input
-                value={input}
-                onChange={handleInputChange}
-                onKeyDown={handleInputKeyDown}
-                placeholder="Type your message..."
-                fullWidth
-                sx={{
-                    color: 'white',
-                    mt: 2,
-                    fontFamily: 'monospace',
-                    width: '100%'
-                }}
-            />
+
+            {/* Input area */}
+            <Box sx={{ flexShrink: 0 }}>
+                <Input
+                    value={input}
+                    onChange={handleInputChange}
+                    onKeyDown={handleInputKeyDown}
+                    placeholder="Type your message..."
+                    fullWidth
+                    sx={{
+                        color: 'white',
+                        mt: 2,
+                        fontFamily: 'monospace',
+                        width: '100%'
+                    }}
+                />
+            </Box>
         </Paper>
     );
 }

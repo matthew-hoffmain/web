@@ -18,10 +18,10 @@ import RadioIcon from '@mui/icons-material/Radio';
 
 const pages = [
     ['Timeline', 'timeline', <PersonIcon/>],
-    ['Cyforge', 'cyforge', <MemoryIcon/>],
+    // ['Cyforge', 'cyforge', <MemoryIcon/>],
     ['Radio', 'radio', <RadioIcon/>],
-    ['Showdown', 'showdown', <CatchingPokemonIcon/>],
-    ['FAQ', 'faq', <ForumIcon/>],
+    // ['Showdown', 'showdown', <CatchingPokemonIcon/>],
+    // ['FAQ', 'faq', <ForumIcon/>],
 ];
 const settings = ['Account', 'Logout'];
 
@@ -58,45 +58,38 @@ function NavBar(props) {
     );
 
     return (
-        <AppBar position="static" sx={{bgcolor:'black'}} >
+        <AppBar position="static" sx={{ bgcolor:'#0e7135' }} >
             <Container maxWidth="xl">
-                <Drawer open={open} onClose={toggleDrawer(false)}>
+                {/*<Drawer open={open} onClose={toggleDrawer(false)}>
                     {DrawerList}
-                </Drawer>
-                <Toolbar disableGutters>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                        onClick={toggleDrawer(true)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Link to={"/"} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            component="a"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            HOFFMAIN
-                        </Typography>
-                    </Link>
+                </Drawer>*/}
+                <Toolbar disableGutters sx={{ position: 'relative', display: 'flex', alignItems: 'center', minHeight: '64px', py: 1 }}>
+                    {/* Left: Title */}
+                    <Box sx={{ flex: '1 1 0', display: 'flex', alignItems: 'center', zIndex: 1 }}>
+                        <Link to={"/"} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Typography
+                                variant="h1"
+                                noWrap
+                                component="a"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontFamily: 'Oranienbaum',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                HOFFMAIN
+                            </Typography>
+                        </Link>
+                    </Box>
 
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Link to={page[1]} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Link to={page[1]} style={{ textDecoration: 'none', color: 'inherit' }} key={page[0]}>
                                 <Button
                                     key={page[0]}
                                     onClick={handleCloseNavMenu}
@@ -104,7 +97,7 @@ function NavBar(props) {
                                         mx: 1,
                                         borderRadius: 4,
                                         display: 'block',
-                                        backgroundColor: '#222',
+                                        backgroundColor: '#148f46',
                                         color: '#ffffff',
                                         '&:hover': {
                                             backgroundColor: '#444',
@@ -112,14 +105,17 @@ function NavBar(props) {
                                 }}
                                 >
                                     {page[2] ? page[2] : null}
-                                    <Typography fontFamily={'monospace'} fontWeight={'bold'}>
+                                    <Typography fontFamily={'Domine'} fontWeight={'bold'}
+                                                letterSpacing={'0.1rem'}>
                                         {page[0]}
                                     </Typography>
                                 </Button>
                             </Link>
                         ))}
                     </Box>
-                    <Box sx={{ flexGrow: 0 }}>
+
+                    {/* Right: GitHub Icon */}
+                    <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center', zIndex: 1 }}>
                         <IconButton color="inherit" href="https://github.com/matthew-hoffmain" target="_blank">
                             <GitHubIcon />
                         </IconButton>

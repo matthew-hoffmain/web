@@ -19,12 +19,16 @@ export default function Timeline(props) {
         <Container
             maxWidth="lg"
             component="main"
-            sx={{ display: 'flex', flexDirection: 'column', bgcolor:'white'}}
+            sx={{ display: 'flex', flexDirection: 'column',
+                bgcolor:'#ffffff'
+        }}
         >
             <Container
                 maxWidth="xl"
                 component="main"
-                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
+                sx={{ display: 'flex', flexDirection: 'column', gap: 4 ,
+                    bgcolor:'#ffffff'
+            }}
             >
                 <Typography
                     align="justify"

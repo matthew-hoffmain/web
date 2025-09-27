@@ -17,20 +17,17 @@ export default function Homepage() {
         <Container
             maxWidth="lg"
             component="main"
-            sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'white'}}
+            sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'#ffffff'}}
         >
             <Container
-                maxWidth="lg"
+                maxWidth="md"
                 component="main"
-                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:''}}
+                sx={{ display: 'flex', flexDirection: 'column', gap: 4 , bgcolor:'#ffffff'}}
             >
                 <Typography
                     align="justify"
                     variant="body1"
-                    href="/"
-                    sx={{
-                        fontFamily: 'monospace',
-                    }}>
+                >
                     <ReactMarkdown>
                         {message}
                     </ReactMarkdown>
