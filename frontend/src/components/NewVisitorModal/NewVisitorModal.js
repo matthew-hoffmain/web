@@ -30,11 +30,11 @@ export default function NewVisitorModal() {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Welcome new user!
+                    <Typography id="modal-modal-title" variant="h3" component="h2">
+                        Welcome!
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        I highly recommend using the virtual assistant during your first visit.
+                        For the new users, I recommend enabling the chat bot setting.
                     </Typography>
                 </Box>
             </Modal>

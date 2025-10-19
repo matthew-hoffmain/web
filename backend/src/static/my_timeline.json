@@ -3,14 +3,14 @@
    "event": "Applying to Law Schools",
    "category": "academic",
    "icon": "balance",
-   "description": "I am currently applying to law schools, with a focus on intellectual property and technology law."
+   "description": "I am currently applying to law schools, with an interest in [[intellectual property::A work or invention that is the result of creativity, such as a manuscript or a design, to which one has rights and for which one may apply for a patent, copyright, trademark, etc.]] and [[technology law::A broad branch of law dealing with the legal aspects of technology, the internet, intellectual property, and digital innovations.]]."
   },
   {
    "date": "January 2025",
-   "event": "Joined Digital Science as a Software Engineer",
+   "event": "Joined {{Digital Science::A technology company with its headquarters in London, England, and which focuses on strategic investments into startup companies that support the research lifecycle.}} as a Software Engineer",
    "category": "professional",
    "icon": "science",
-   "description": "Started a new role focusing on software development for webapps and services for the National Institutes of Health."
+   "description": "Started a new role focusing on software development for webapps and services for the {{National Institutes of Health::The primary agency of the United States federal government responsible for biomedical and public health research.}}."
   },
     {
    "date": "October 2024",
@@ -28,14 +28,21 @@
   },
   {
    "date": "June 2023",
-   "event": "Developed and trained an LLM and chatbot",
+   "event": "Developed and trained an [[LLM (large language model):: A model of the human brain's ability to produce natural language, trained with self-supervised machine learning on a vast amount of text, designed for natural language processing tasks, especially language generation.]] and chatbot",
    "category": "personal",
       "icon": "assistant",
    "description": "Created an assistant based on previous experience with parallel processing and model training."
   },
   {
+   "date": "May 2023",
+   "event": "Ran my first Half Marathon",
+   "category": "personal",
+    "icon": "running",
+   "description": "Participated in Boston's Run to Remember Half Marathon."
+  },
+  {
    "date": "April 2023",
-   "event": "Completed Boston University Paralegal Studies Certification",
+   "event": "Completed #[Boston University Paralegal Studies Certification::something cool]",
    "category": "academic",
    "description": "Finished a 14-week online program to learn how to use legal technologies and tools, and to gain fundamental legal research skills."
   },
@@ -44,7 +51,7 @@
    "date": "May 2022",
    "event": "Graduated from Northeastern University Honors College of Engineering BS/MS Program",
    "category": "academic",
-   "description": "Left with a combined Bachelor's in Computer Engineering and Computer Science, and a Master's in Electrical and Computer Engineering with a concentration in Computer Systems"
+   "description": "Left with a combined Bachelor's in Computer Engineering and Computer Science, and a Master's in Electrical and Computer Engineering with a concentration in Computer Systems."
   },
   {
    "date": "June 2021",
@@ -75,6 +82,13 @@
   },
     {
    "date": "January 2019",
+   "event": "Elected Treasurer of Northeastern University's Beta Gamma Epsilon Alpha Chapter",
+   "category": "personal",
+    "icon": "bank",
+   "description": "Took responsibility of my engineering fraternity's finances for the year of our centennial commemoration (founded February 12, 1919)."
+  },
+    {
+   "date": "January 2019",
    "event": "Became a Course Assistant for Accelerated Fundamentals of Computer Science II",
    "category": "professional",
     "icon": "dataObject",
@@ -96,10 +110,10 @@
   },
     {
    "date": "April 2017",
-   "event": "Published in the 2017 ASEE-NE Conference Proceedings",
+   "event": "Published in the 2017 #[ASEE::The American Society for Engineering Education (ASEE) is a non-profit member association, founded in 1893, dedicated to promoting and improving engineering and engineering technology education. The purpose of ASEE is the advancement of education in all of its functions which pertain to engineering and allied branches of science and technology, including the processes of teaching and learning, counseling, research, extension services and public relations.]-NE Conference Proceedings",
    "category": "academic",
     "icon": "greenEnergy",
-   "description": "Co-authored a paper with a professor and other first-year engineering students: *Renewable Energy Generation from Footsteps using Piezoelectronics*"
+   "description": "Co-authored a paper with a professor and other first-year engineering students: [*Renewable Energy Generation from Footsteps using Piezoelectronics*](https://asee-ne.org/conferences/aseene/2017/index.php/aseene/aseene2017/paper/view/11)."
   },
   {
    "date": "September 2016",
@@ -110,13 +124,13 @@
   },
   {
    "date": "May 2016",
-   "event": "Graduated from Milford High School",
+   "event": "Graduated from #[Milford High School::todo]",
    "category": "academic",
-   "description": "Ranked 5th / approx. 300, as an AP Scholar with Distinction, president of the National Honors Society, captain of the MBA Mock Trial Team, president of the Junior State of America chapter, member of the Tri-M Music Honors Society, member of the Central District MMEA choir (baritone), varsity tennis player, theater member, and pinchaser."
+   "description": "Ranked 5th / approx. 300, as an #[AP Scholar with Distinction::Granted to students who receive an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more of these exams.], president of the #[National Honors Society::One of the oldest, largest, and most widely recognized cocurricular student organizations in American high schools, with 1.4 million members. The purpose of the NHS is to create enthusiasm for scholarship, to recognize outstanding students, to stimulate a desire to render service, to promote leadership, and to develop character in the students of secondary schools.], captain of the #[MBA Mock Trial Team::Places high school teams from across Massachusetts in simulated courtroom situations where students assume the roles of lawyers, defendants and witnesses in hypothetical cases. More than 1,000 students across the state participate in the competition, and more than 100 lawyers from communities around the state preside over the mock trials as judges, and coaches for the students.], president of the #[Junior State of America::Formerly the Junior Statesmen of America, abbreviated JSA, was an American non-partisan youth organization. The purpose of JSA was to help high school students acquire leadership skills and the knowledge necessary to be effective debaters and civic participants. JSA was sponsored by the Junior State of America Foundation Inc. (JSAF, a 501c(3) non-profit corporation), which also operated the JSA Summer Schools. On August 2nd, 2024, it was announced that the organization would be closing and ceasing operations on August 31, 2024.] chapter, member of the #[Tri-M Music Honors Society::todo], member of the #[Central District MMEA Choir::todo] ([[baritone::todo]]), varsity tennis player, theater member, and {{pinchaser::A person who performs maintenance and repairs on bowling alley pinsetters, clearing jams and resetting machines.}}."
   },
   {
    "date": "January 2016",
-   "event": "Started at PINZ Entertainment as a Pinchaser / Bowling Mechanic",
+   "event": "Started at PINZ Entertainment as a {{Pinchaser::A person who performs maintenance and repairs on bowling alley pinsetters, clearing jams and resetting machines.}}",
    "category": "professional",
    "icon": "handyman",
    "description": "Joined the gaming staff at my local bowling alley, and became an experienced bowling mechanic over college summers, fixing the pinspotters, laser tag systems, and arcade machines. I bowled a 216 once and retired."

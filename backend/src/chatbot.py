@@ -1,16 +1,15 @@
 from openai import OpenAI
-from cyforge.blocks.schema import Schema
+from datetime import datetime
 
 
-KEY = "temp please get your own"
 
-def get_response(messages, message_id) -> str:
+def get_response(make, model, key, messages, message_id) -> dict:
     """
     Get a response from the OpenAI API.
     :param prompt: The prompt to send to the OpenAI API.
-    :return: The response from the OpenAI API.
+    :return: Dictionary containing the response content and audio filename.
     """
-    client = OpenAI(api_key=KEY)
+    client = OpenAI(api_key=key)
     response = client.chat.completions.create(
         model="gpt-4.1",
         messages=messages
@@ -24,5 +23,12 @@ def get_response(messages, message_id) -> str:
         response_format='mp3',
         speed=1
     )
-    response_audio.stream_to_file(f'static/audio/virgil/test{message_id}.mp3')
-    return response_content
+    # Generate timestamp in UTC, format YYYYMMDDTHHMMSS
+    timestamp = datetime.utcnow().strftime('%Y%m%dT%H%M%S')
+    filename = f'static/audio/virgil/{timestamp}.mp3'
+    response_audio.write_to_file(filename)
+
+    return {
+        'content': response_content,
+        'audio_filename': f'{timestamp}.mp3'
+    }

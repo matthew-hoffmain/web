@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
-import ReactMarkdown from "react-markdown";
+import MarkdownWithTooltips from "../../MarkdownWithTooltips/MarkdownWithTooltips";
 
 export default function Message(props) {
     const isUser = props.role === "user";
@@ -78,7 +78,7 @@ export default function Message(props) {
                 fontFamily: 'monospace',
                 flex: 1,
             }}>
-                <ReactMarkdown
+                <MarkdownWithTooltips
                     components={{
                         p: ({node, ...props}) => (
                             <Typography
@@ -86,11 +86,11 @@ export default function Message(props) {
                         ),
                     }}>
                     {props.content}
-                </ReactMarkdown>
+                </MarkdownWithTooltips>
             </Typography>
             <audio
                 ref={audioRef}
-                src={`/static/audio/virgil/test${id}.mp3`}
+                src={props.audioFilename ? `/static/audio/virgil/${props.audioFilename}` : undefined}
                 onEnded={() => setPlaying(false)}
                 style={{ display: 'none' }}
             />

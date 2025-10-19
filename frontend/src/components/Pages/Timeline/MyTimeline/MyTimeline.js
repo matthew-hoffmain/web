@@ -41,6 +41,7 @@ import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import AssistantIcon from '@mui/icons-material/Assistant';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import Box from "@mui/material/Box";
+import MarkdownWithTooltips from "../../../MarkdownWithTooltips/MarkdownWithTooltips";
 
 
 const icons = {
@@ -227,18 +228,15 @@ export default function MyTimeline(props) {
                                         {visibleIndex < visibleItems.length - 1 && <TimelineConnector/>}
                                     </TimelineSeparator>
                                     <TimelineContent>
-                                        <Typography fontWeight={'bold'}>
-                                            {item.event}
+                                        <Typography sx={{ margin: 0 }}>
+                                            <MarkdownWithTooltips>
+                                                {`**${item.event}**`}
+                                            </MarkdownWithTooltips>
                                         </Typography>
-                                        <Typography align={'justify'}>
-                                            <ReactMarkdown
-                                                components={{
-                                                    p: ({node, ...props}) => (
-                                                        <Typography variant="body1" sx={{margin: 0}} {...props} />
-                                                    ),
-                                                }}>
+                                        <Typography align={'justify'} sx={{ margin: 0 }}>
+                                            <MarkdownWithTooltips>
                                                 {item.description}
-                                            </ReactMarkdown>
+                                            </MarkdownWithTooltips>
                                         </Typography>
                                     </TimelineContent>
                                 </TimelineItem>

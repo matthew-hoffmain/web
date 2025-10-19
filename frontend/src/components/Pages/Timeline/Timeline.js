@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import Typography from "@mui/material/Typography";
 import MyTimeline from "./MyTimeline/MyTimeline";
 import FooterBar from "../../FooterBar/FooterBar";
+import MarkdownWithTooltips from "../../MarkdownWithTooltips/MarkdownWithTooltips";
 
 
 export default function Timeline(props) {
@@ -21,14 +22,15 @@ export default function Timeline(props) {
             maxWidth="lg"
             component="main"
             sx={{ display: 'flex', flexDirection: 'column',
-                bgcolor:'#ffffff'
+                bgcolor:'#ffffff',
         }}
         >
             <Container
                 maxWidth="xl"
                 component="main"
                 sx={{ display: 'flex', flexDirection: 'column', gap: 4 ,
-                    bgcolor:'#ffffff'
+                    bgcolor:'#ffffff',
+                    mt: 15,
             }}
             >
                 <Typography
@@ -38,9 +40,9 @@ export default function Timeline(props) {
                     sx={{
                         fontFamily: 'domine',
                     }}>
-                    <ReactMarkdown>
+                    <MarkdownWithTooltips>
                         {message}
-                    </ReactMarkdown>
+                    </MarkdownWithTooltips>
                 </Typography>
 
                 <MyTimeline topRef={props.topRef}/>
